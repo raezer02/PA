@@ -258,6 +258,9 @@ def approval():
                 print(f"Pemesan  : {row.get('nama_pemesan', '')}")
 
                 edit_status = input("Ubah status? (y/n): ").strip().lower() #fix
+                if edit_status == "":
+                    print("tidak boleh kosong".upper())
+                    continue
                 if edit_status == "y":
                     status_list = ["approve", "rejected"]
                     menu_status = choice("Pilih status baru: ", status_list)
@@ -273,7 +276,6 @@ def approval():
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(rows)
-
         print("Status kamar berhasil diubah.")
         pause()
         return
