@@ -77,6 +77,10 @@ def create():
         harga = input("Masukkan harga: ")
         if harga == "":
             harga = 0
+        if not harga.isdigit():
+            print("hanya bisa integer")
+            pause()
+            return
         harga = int(harga)
         rupiah = f"Rp {harga:,.0f}".replace(",", ".")
 
